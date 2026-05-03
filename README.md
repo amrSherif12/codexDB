@@ -13,7 +13,7 @@ This project is structured into three primary modules:
 
 The Database Engine is the core of the system. It handles disk I/O, manages pages, and executes CRUD operations.
 
-We store data in tables (currently limited to one). Since tables can grow quite large, we cannot load an entire table into memory. Instead, we break data into **Pages** (typically 4KB, 8KB, or 16KB). I chose 4KB as the standard size because it aligns with standard hardware architecture and file system allocation units. We load only the specific pages we need into memory, modifying them and writing them back to disk as necessary.
+We store data in tables (currently limited to one). Since tables can grow quite large, we cannot load an entire table into memory. Instead, we break data into **Pages** (typically 4KB, 8KB, or 16KB). If you are asking why 4KB, because its the standard size because it aligns with standard hardware architecture and file system allocation units. I personally used 8KB as it gives us more space per page and most DBMSs use 8KB. We load only the specific pages we need into memory, modifying them and writing them back to disk as necessary.
 
 ## Page
 
