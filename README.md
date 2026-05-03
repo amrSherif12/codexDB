@@ -69,7 +69,7 @@ The Cursor is a utility for data iteration rather than storage.
 * **Role:** Acts as a pointer to a specific record.
 * **Functionality:** Includes an `advance()` method, allowing the engine to traverse through records sequentially. This is essential for operations like `SELECT *`.
 
-## 5. The Index: B+Tree Implementation
+# The Index: B+Tree Implementation
 The Index utilizes a B+Tree structure to optimize query performance from $O(n)$ linear scans to $O(\log n)$ tree traversals. It is a self-balancing tree consisting of two node types:
 
 * **Internal Nodes:** Act as signposts. They guide the search algorithm to the correct path based on key ranges.
