@@ -1,0 +1,16 @@
+# ninja log v6
+57	1913	7995268922958447	CMakeFiles/cool_dbms.dir/src/executor.cpp.obj	67f79704cbc30e98
+24	1824	7995268922619470	CMakeFiles/cool_dbms.dir/src/cursor.cpp.obj	7ba9e03ccc3694f8
+14	4529	7995280639285190	CMakeFiles/cool_dbms.dir/src/main.cpp.obj	797232d904e7b0f
+32	1837	7995268922705019	CMakeFiles/cool_dbms.dir/src/table.cpp.obj	695ed6718d86b68b
+14	1515	7995263728619593	CMakeFiles/cool_dbms.dir/src/compiler.cpp.obj	b93669daa062857c
+26	2441	7995227384564310	CMakeFiles/cool_dbms.dir/src/pager.cpp.obj	3e037bfdd7facb76
+40	1816	7995268922786147	CMakeFiles/cool_dbms.dir/src/page.cpp.obj	a9d12159a1ca6a27
+48	2125	7995268922871392	CMakeFiles/cool_dbms.dir/src/btree.cpp.obj	7731ed365548f8a9
+4530	4795	7995280684443190	cool_dbms.exe	b519d6e68df625f3
+24	4601	7995281492766926	CMakeFiles/cool_dbms.dir/src/main.cpp.obj	797232d904e7b0f
+4602	4885	7995281538544206	cool_dbms.exe	b519d6e68df625f3
+15	4731	7995282130678025	CMakeFiles/cool_dbms.dir/src/main.cpp.obj	797232d904e7b0f
+4732	4989	7995282177839208	cool_dbms.exe	b519d6e68df625f3
+17	4731	7995282285228242	CMakeFiles/cool_dbms.dir/src/main.cpp.obj	797232d904e7b0f
+11	287	7995282417314820	cool_dbms.exe	b519d6e68df625f3
