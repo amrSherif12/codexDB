@@ -3,7 +3,7 @@
 
 #include<fstream>
 
-constexpr int PAGE_SIZE = 250;
+constexpr int PAGE_SIZE = 8192;
 
 class Pager {
     std::fstream file;
