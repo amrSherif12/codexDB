@@ -7,6 +7,10 @@ Page::Page(char *data) {
     header = reinterpret_cast<PageHeader *>(data);
 }
 
+Page::~Page() {
+    delete[] data;
+}
+
 Slot *Page::get_slot(uint16_t slot_index) {
     char *slot_data = data + sizeof(PageHeader) + slot_index * sizeof(Slot);
     return reinterpret_cast<Slot *>(slot_data);

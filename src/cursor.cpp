@@ -1,5 +1,7 @@
 #include "../include/cursor.h"
 
+#include <iostream>
+
 Cursor::Cursor(Table *table, uint32_t page_num, uint16_t slot_index) : table(table), page_num(page_num),
                                                                        slot_index(slot_index) {
 }
@@ -10,15 +12,14 @@ bool Cursor::end_of_table() {
 
 char *Cursor::value() {
     if (end_of_table()) return nullptr;
-    Page *page = table->get_page(page_num);
+    PageGuard page = table->get_page(page_num);
     return page->get_record(slot_index);
 }
 
 void Cursor::advance() {
     if (end_of_table()) return;
-    Page *page = table->get_page(page_num);
+    PageGuard page = table->get_page(page_num);
     slot_index++;
-
     while (true) {
         if (slot_index < page->header->slot_cnt) {
             if (page->get_record(slot_index)) return;

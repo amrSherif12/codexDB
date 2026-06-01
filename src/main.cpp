@@ -6,6 +6,7 @@
 #include "../include/executor.h"
 #include "../include/statement.h"
 #include "../include/table.h"
+#include "../test/test.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -27,6 +28,13 @@ void setupConsole() {
 
 int main() {
     setupConsole();
+
+    bool is_testing = true;
+    if (is_testing) {
+        test();
+        return 0;
+    }
+
     std::string input_buffer;
 
 std::string yellow =  "\033[38;2;255;180;0m";
@@ -46,8 +54,9 @@ std::string yellow =  "\033[38;2;255;180;0m";
     std::cout <<
             "codexDB is a simple DBMS\n- It supports only one built in table (int id, string username, string email)\n- The basic CRUD operations\n- Type .help to see all functionality\n\n";
 
-    Table *table = new Table("database.db");
-    BTree btree(table);
+    BufferPoolManager bpm("database.db");
+    Table table("database.db", &bpm);
+    BTree btree(&table);
 
     while (true) {
         std::cout << yellow << "codexDB> " << reset;
@@ -56,7 +65,6 @@ std::string yellow =  "\033[38;2;255;180;0m";
         if (input_buffer.empty()) continue;
         if (input_buffer[0] == '.') {
             if (input_buffer == ".exit") {
-                delete table;
                 std::cout << "Exiting...\n";
                 break;
             }
@@ -77,6 +85,12 @@ std::string yellow =  "\033[38;2;255;180;0m";
                 continue;
             } else if (input_buffer == ".tree") {
                 btree.print_tree();
+                continue;
+            } else if (input_buffer == ".bpm") {
+                bpm.print_frames();
+                continue;
+            } else if (input_buffer == ".save") {
+                bpm.flush_all_pages();
                 continue;
             } else {
                 std::cout << red << "Unrecognized command " << reset << input_buffer << "'.\n";

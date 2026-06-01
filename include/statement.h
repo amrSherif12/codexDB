@@ -32,7 +32,14 @@ struct Row {
                sizeof(uint16_t) + email.length();
     }
 
-    void serialize(char* dest) const {
+    bool operator==(Row &other) {
+        return
+                this->id == other.id &&
+                this->email == other.email &&
+                this->username == other.username;
+    }
+
+    void serialize(char *dest) const {
         uint16_t offset = 0;
 
         memcpy(dest + offset, &id, sizeof(uint32_t));
@@ -50,7 +57,7 @@ struct Row {
         memcpy(dest + offset, email.c_str(), em_len);
     }
 
-    void deserialize(const char* source) {
+    void deserialize(const char *source) {
         uint16_t offset = 0;
 
         memcpy(&id, source + offset, sizeof(uint32_t));

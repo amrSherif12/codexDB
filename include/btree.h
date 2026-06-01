@@ -22,32 +22,30 @@ struct SearchResult {
 class BTree {
     InternalNodeCell *get_internal_cell(Page *node, uint16_t cell_num);
 
-    bool insert_internal_cell(Page *node, uint32_t key, uint32_t left_child, uint32_t right_child);
+    bool insert_internal_cell(PageGuard &node, uint32_t key, uint32_t left_child, uint32_t right_child);
 
-    void remove_internal_cell(Page *parent, uint32_t child_to_delete);
-
+    void remove_internal_cell(PageGuard &parent, uint32_t child_to_delete);
 
     uint32_t find_leaf_page(uint32_t key, uint32_t page_id = 0);
 
-    uint16_t get_child_index(Page *parent, uint16_t child_page_id);
+    uint16_t get_child_index(PageGuard &parent, uint16_t child_page_id);
 
-    void balance_leaf(Page *leaf_page);
+    void balance_leaf(PageGuard &leaf_page);
 
     SplitResult split_leaf_node(Cursor *cursor);
 
-    void merge_leaf(Page *left_page, Page *right_page);
+    void merge_leaf(PageGuard &left_page, PageGuard &right_page);
 
-    void borrow_leaf(Page *src_page, Page *dst_page, bool from_beg);
+    void borrow_leaf(PageGuard &src_page, PageGuard &dst_page, bool from_beg);
 
-    void balance_internal(Page *internal_page);
+    void balance_internal(PageGuard &internal_page);
 
     SplitResult split_internal_node(uint32_t internal_page_id);
 
-    void merge_internal(Page *left, Page *right, Page *parent, uint16_t parent_index);
+    void merge_internal(PageGuard &left, PageGuard &right, PageGuard &parent, uint16_t parent_index);
 
-    void borrow_internal(Page *src, Page *dst, Page *parent, uint16_t parent_index, bool from_beg);
+    void borrow_internal(PageGuard &src, PageGuard &dst, PageGuard &parent, uint16_t parent_index, bool from_beg);
 
-    void print_tree_rec(Page *page, std::vector<std::vector<Page*>> &pages, int level);
 
 public:
     Table *table;

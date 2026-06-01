@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Arabtech/Desktop/cool_dbms/cmake-build-debug"
+			"value" : "d:/codexDB/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -575,7 +575,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Arabtech/Desktop/cool_dbms/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "D:/codexDB/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -647,7 +647,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/Arabtech/Desktop/cool_dbms"
+			"value" : "D:/codexDB"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1291,7 +1291,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Arabtech/Desktop/cool_dbms/cmake-build-debug"
+			"value" : "D:/codexDB/cmake-build-debug"
 		},
 		{
 			"name" : "cool_dbms_IS_TOP_LEVEL",
@@ -1315,7 +1315,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Arabtech/Desktop/cool_dbms"
+			"value" : "D:/codexDB"
 		}
 	],
 	"kind" : "cache",
