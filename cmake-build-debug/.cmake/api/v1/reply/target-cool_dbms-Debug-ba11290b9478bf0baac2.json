@@ -59,7 +59,11 @@
 				8,
 				10,
 				14,
-				15
+				15,
+				17,
+				19,
+				20,
+				21
 			]
 		}
 	],
@@ -103,7 +107,11 @@
 				8,
 				10,
 				14,
-				15
+				15,
+				17,
+				19,
+				20,
+				21
 			]
 		},
 		{
@@ -117,7 +125,10 @@
 				9,
 				11,
 				12,
-				13
+				13,
+				16,
+				18,
+				22
 			]
 		}
 	],
@@ -210,6 +221,45 @@
 			"compileGroupIndex" : 0,
 			"path" : "src/executor.cpp",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/buffer_pool_manager.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/buffer_pool_manager.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/page_guard.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/page_guard.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "test/query_test.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "test/test.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "test/test.h",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"

@@ -18,4 +18,12 @@ add_executable(cool_dbms src/main.cpp
         include/compiler.h
         include/executor.h
         src/compiler.cpp
-        src/executor.cpp)
+        src/executor.cpp
+        include/buffer_pool_manager.h
+        src/buffer_pool_manager.cpp
+        include/page_guard.h
+        src/page_guard.cpp
+        test/query_test.cpp
+        test/test.cpp
+        test/test.h
+)

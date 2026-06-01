@@ -6,10 +6,9 @@
 ExecuteResult execute_statement(Statement *statement, BTree *btree) {
     switch (statement->type) {
         case STATEMENT_INSERT: {
-            uint32_t id = btree->table->get_superblock()->next_auto_increment_id;
-            btree->table->increment_superblock_id();
+            SuperBlockGuard sb_page = btree->table->get_superblock();
+            uint32_t id = btree->table->increment_superblock_row_id(sb_page);
             statement->row.id = id;
-
             uint16_t size = statement->row.get_size();
             char *buffer = new char[size];
             statement->row.serialize(buffer);
@@ -33,6 +32,7 @@ ExecuteResult execute_statement(Statement *statement, BTree *btree) {
             return EXECUTE_SUCCESS;
         }
         case STATEMENT_SELECT_ALL: {
+
             SearchResult search_result = btree->begin();
             Cursor cursor = search_result.cursor;
             int count = 0;

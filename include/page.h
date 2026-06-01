@@ -4,10 +4,10 @@
 
 #pragma pack(push, 1)
 enum PageType : uint8_t {
-    INTERNAL_NODE = 0,
-    LEAF_NODE = 1,
-    FREE_NODE = 2,
-    SUPER_BLOCK = 2
+    FREE_NODE,
+    INTERNAL_NODE,
+    LEAF_NODE,
+    SUPER_BLOCK,
 };
 
 struct PageHeader {
@@ -31,7 +31,8 @@ struct Slot {
 struct SuperBlock {
     uint32_t root_page_id;
     uint32_t first_free_page;
-    uint32_t next_auto_increment_id;
+    uint32_t next_auto_increment_row_id;
+    uint32_t next_auto_increment_page_id;
 };
 #pragma pack(pop)
 
@@ -41,6 +42,8 @@ public:
     PageHeader *header;
 
     Page(char *data);
+
+    ~Page();
 
     Slot *get_slot(uint16_t slot_index);
 

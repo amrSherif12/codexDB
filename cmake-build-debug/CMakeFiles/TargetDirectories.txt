@@ -1,3 +1,3 @@
-C:/Users/Arabtech/Desktop/cool_dbms/cmake-build-debug/CMakeFiles/cool_dbms.dir
-C:/Users/Arabtech/Desktop/cool_dbms/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Arabtech/Desktop/cool_dbms/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/codexDB/cmake-build-debug/CMakeFiles/cool_dbms.dir
+D:/codexDB/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/codexDB/cmake-build-debug/CMakeFiles/rebuild_cache.dir
