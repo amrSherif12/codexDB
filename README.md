@@ -113,3 +113,19 @@ struct Statement {
     Row row;               // The data payload, if applicable
     uint32_t target_id;    // Key identifier for specific targeted operations
 };
+```
+
+# Version 2 added new features
+## Buffer Pool Manager (BPM)
+
+The Buffer Pool Manager bridges the gap between memory and disk storage. Instead of interacting with the Pager directly, the database requests pages through the BPM.
+* **Frame Management:** Allocates a fixed number of memory frames cache-mapped to raw disk pages.
+* **Replacement Policy (LRU/Clock):** Evicts unmodified or unpinned pages from memory when the buffer pool is full to make room for new page reads.
+* **Page Pinning:** Tracks active page usage. A page cannot be evicted if its pin count is greater than 0.
+
+## Testing (Integration Tests)
+To ensure that all independent modules—the Buffer Pool Manager, Slotted Page storage, and the B+Tree Index—work harmoniously, the system relies heavily on end-to-end integration tests. 
+
+* **CRUD Verification:** Instead of testing functions in isolation with mocked data, integration tests execute a sequential script of heavy insertions, updates, and cascading deletions against a live, disk-backed table file.
+* **Tree Invariant Validation:** Following complex database mutations (such as bulk deletions causing node underflows), the test suite prints and walks the entire B+Tree to assert structural invariants, ensuring that all leaf nodes remain strictly at the same depth level and data integrity is preserved across restarts.
+
