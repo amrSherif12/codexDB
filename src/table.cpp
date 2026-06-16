@@ -1,6 +1,4 @@
 #include "../include/table.h"
-#include <cstring>
-#include <iostream>
 
 Table::Table(const std::string &file_name, BufferPoolManager *bpm) {
     this->bpm = bpm;
@@ -62,7 +60,8 @@ SuperBlockGuard Table::get_superblock() {
 }
 
 
-int Table::increment_superblock_row_id(SuperBlockGuard &superblock) {
+uint32_t Table::increment_superblock_row_id() {
+    SuperBlockGuard superblock = get_superblock();
     superblock->next_auto_increment_row_id++;
     superblock.mark_dirty();
     return superblock->next_auto_increment_row_id - 1;

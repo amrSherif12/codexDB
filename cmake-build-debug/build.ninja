@@ -91,12 +91,6 @@ build CMakeFiles/cool_dbms.dir/src/compiler.cpp.obj: CXX_COMPILER__cool_dbms_uns
   OBJECT_DIR = CMakeFiles\cool_dbms.dir
   OBJECT_FILE_DIR = CMakeFiles\cool_dbms.dir\src
 
-build CMakeFiles/cool_dbms.dir/src/executor.cpp.obj: CXX_COMPILER__cool_dbms_unscanned_Debug D$:/codexDB/src/executor.cpp || cmake_object_order_depends_target_cool_dbms
-  DEP_FILE = CMakeFiles\cool_dbms.dir\src\executor.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\cool_dbms.dir
-  OBJECT_FILE_DIR = CMakeFiles\cool_dbms.dir\src
-
 build CMakeFiles/cool_dbms.dir/src/buffer_pool_manager.cpp.obj: CXX_COMPILER__cool_dbms_unscanned_Debug D$:/codexDB/src/buffer_pool_manager.cpp || cmake_object_order_depends_target_cool_dbms
   DEP_FILE = CMakeFiles\cool_dbms.dir\src\buffer_pool_manager.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
@@ -121,6 +115,48 @@ build CMakeFiles/cool_dbms.dir/test/test.cpp.obj: CXX_COMPILER__cool_dbms_unscan
   OBJECT_DIR = CMakeFiles\cool_dbms.dir
   OBJECT_FILE_DIR = CMakeFiles\cool_dbms.dir\test
 
+build CMakeFiles/cool_dbms.dir/src/executor/scan_executor.cpp.obj: CXX_COMPILER__cool_dbms_unscanned_Debug D$:/codexDB/src/executor/scan_executor.cpp || cmake_object_order_depends_target_cool_dbms
+  DEP_FILE = CMakeFiles\cool_dbms.dir\src\executor\scan_executor.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\cool_dbms.dir
+  OBJECT_FILE_DIR = CMakeFiles\cool_dbms.dir\src\executor
+
+build CMakeFiles/cool_dbms.dir/src/executor/where_executor.cpp.obj: CXX_COMPILER__cool_dbms_unscanned_Debug D$:/codexDB/src/executor/where_executor.cpp || cmake_object_order_depends_target_cool_dbms
+  DEP_FILE = CMakeFiles\cool_dbms.dir\src\executor\where_executor.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\cool_dbms.dir
+  OBJECT_FILE_DIR = CMakeFiles\cool_dbms.dir\src\executor
+
+build CMakeFiles/cool_dbms.dir/src/executor/limit_executor.cpp.obj: CXX_COMPILER__cool_dbms_unscanned_Debug D$:/codexDB/src/executor/limit_executor.cpp || cmake_object_order_depends_target_cool_dbms
+  DEP_FILE = CMakeFiles\cool_dbms.dir\src\executor\limit_executor.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\cool_dbms.dir
+  OBJECT_FILE_DIR = CMakeFiles\cool_dbms.dir\src\executor
+
+build CMakeFiles/cool_dbms.dir/src/executor/execution_engine.cpp.obj: CXX_COMPILER__cool_dbms_unscanned_Debug D$:/codexDB/src/executor/execution_engine.cpp || cmake_object_order_depends_target_cool_dbms
+  DEP_FILE = CMakeFiles\cool_dbms.dir\src\executor\execution_engine.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\cool_dbms.dir
+  OBJECT_FILE_DIR = CMakeFiles\cool_dbms.dir\src\executor
+
+build CMakeFiles/cool_dbms.dir/src/executor/insert_executor.cpp.obj: CXX_COMPILER__cool_dbms_unscanned_Debug D$:/codexDB/src/executor/insert_executor.cpp || cmake_object_order_depends_target_cool_dbms
+  DEP_FILE = CMakeFiles\cool_dbms.dir\src\executor\insert_executor.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\cool_dbms.dir
+  OBJECT_FILE_DIR = CMakeFiles\cool_dbms.dir\src\executor
+
+build CMakeFiles/cool_dbms.dir/src/executor/update_executor.cpp.obj: CXX_COMPILER__cool_dbms_unscanned_Debug D$:/codexDB/src/executor/update_executor.cpp || cmake_object_order_depends_target_cool_dbms
+  DEP_FILE = CMakeFiles\cool_dbms.dir\src\executor\update_executor.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\cool_dbms.dir
+  OBJECT_FILE_DIR = CMakeFiles\cool_dbms.dir\src\executor
+
+build CMakeFiles/cool_dbms.dir/src/executor/delete_executor.cpp.obj: CXX_COMPILER__cool_dbms_unscanned_Debug D$:/codexDB/src/executor/delete_executor.cpp || cmake_object_order_depends_target_cool_dbms
+  DEP_FILE = CMakeFiles\cool_dbms.dir\src\executor\delete_executor.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\cool_dbms.dir
+  OBJECT_FILE_DIR = CMakeFiles\cool_dbms.dir\src\executor
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target cool_dbms
@@ -129,7 +165,7 @@ build CMakeFiles/cool_dbms.dir/test/test.cpp.obj: CXX_COMPILER__cool_dbms_unscan
 #############################################
 # Link the executable cool_dbms.exe
 
-build cool_dbms.exe: CXX_EXECUTABLE_LINKER__cool_dbms_Debug CMakeFiles/cool_dbms.dir/src/main.cpp.obj CMakeFiles/cool_dbms.dir/src/pager.cpp.obj CMakeFiles/cool_dbms.dir/src/cursor.cpp.obj CMakeFiles/cool_dbms.dir/src/table.cpp.obj CMakeFiles/cool_dbms.dir/src/page.cpp.obj CMakeFiles/cool_dbms.dir/src/btree.cpp.obj CMakeFiles/cool_dbms.dir/src/compiler.cpp.obj CMakeFiles/cool_dbms.dir/src/executor.cpp.obj CMakeFiles/cool_dbms.dir/src/buffer_pool_manager.cpp.obj CMakeFiles/cool_dbms.dir/src/page_guard.cpp.obj CMakeFiles/cool_dbms.dir/test/query_test.cpp.obj CMakeFiles/cool_dbms.dir/test/test.cpp.obj
+build cool_dbms.exe: CXX_EXECUTABLE_LINKER__cool_dbms_Debug CMakeFiles/cool_dbms.dir/src/main.cpp.obj CMakeFiles/cool_dbms.dir/src/pager.cpp.obj CMakeFiles/cool_dbms.dir/src/cursor.cpp.obj CMakeFiles/cool_dbms.dir/src/table.cpp.obj CMakeFiles/cool_dbms.dir/src/page.cpp.obj CMakeFiles/cool_dbms.dir/src/btree.cpp.obj CMakeFiles/cool_dbms.dir/src/compiler.cpp.obj CMakeFiles/cool_dbms.dir/src/buffer_pool_manager.cpp.obj CMakeFiles/cool_dbms.dir/src/page_guard.cpp.obj CMakeFiles/cool_dbms.dir/test/query_test.cpp.obj CMakeFiles/cool_dbms.dir/test/test.cpp.obj CMakeFiles/cool_dbms.dir/src/executor/scan_executor.cpp.obj CMakeFiles/cool_dbms.dir/src/executor/where_executor.cpp.obj CMakeFiles/cool_dbms.dir/src/executor/limit_executor.cpp.obj CMakeFiles/cool_dbms.dir/src/executor/execution_engine.cpp.obj CMakeFiles/cool_dbms.dir/src/executor/insert_executor.cpp.obj CMakeFiles/cool_dbms.dir/src/executor/update_executor.cpp.obj CMakeFiles/cool_dbms.dir/src/executor/delete_executor.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\cool_dbms.dir

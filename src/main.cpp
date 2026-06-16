@@ -3,9 +3,9 @@
 
 #include "../include/btree.h"
 #include "../include/compiler.h"
-#include "../include/executor.h"
 #include "../include/statement.h"
 #include "../include/table.h"
+#include "../include/executor/execution_engine.h"
 #include "../test/test.h"
 
 #ifdef _WIN32
@@ -29,7 +29,7 @@ void setupConsole() {
 int main() {
     setupConsole();
 
-    bool is_testing = true;
+    bool is_testing = false;
     if (is_testing) {
         test();
         return 0;
@@ -65,10 +65,10 @@ std::string yellow =  "\033[38;2;255;180;0m";
         if (input_buffer.empty()) continue;
         if (input_buffer[0] == '.') {
             if (input_buffer == ".exit") {
+                bpm.flush_all_pages();
                 std::cout << "Exiting...\n";
                 break;
-            }
-            if (input_buffer == ".help") {
+            } else if (input_buffer == ".help") {
                 std::cout << "---------------\n";
                 std::cout << "|  HELP MENU  |\n";
                 std::cout << "---------------\n\n";
@@ -80,8 +80,11 @@ std::string yellow =  "\033[38;2;255;180;0m";
                 std::cout << "-- COMMANDS --\n";
                 std::cout << "SELECT * (gets all records)/ <id>\n";
                 std::cout << "INSERT <name> <email>\n";
-                std::cout << "UPDATE <id> <name> <email>\n";
-                std::cout << "DELETE <id>\n";
+                std::cout << "UPDATE * / <id> <name> <email>\n";
+                std::cout << "DELETE * / <id>\n";
+                std::cout << "-- CLAUSES --\n";
+                std::cout << "WHERE >/</>=/<=/=/!= <id>\n";
+                std::cout << "LIMIT <count>\n";
                 continue;
             } else if (input_buffer == ".tree") {
                 btree.print_tree();
@@ -91,6 +94,7 @@ std::string yellow =  "\033[38;2;255;180;0m";
                 continue;
             } else if (input_buffer == ".save") {
                 bpm.flush_all_pages();
+                std::cout << "Data flushed to disc.";
                 continue;
             } else {
                 std::cout << red << "Unrecognized command " << reset << input_buffer << "'.\n";
@@ -110,12 +114,7 @@ std::string yellow =  "\033[38;2;255;180;0m";
             continue;
         }
 
-        ExecuteResult execute_result = execute_statement(&statement, &btree);
-
-        if (execute_result == EXECUTE_SUCCESS) {
-            std::cout << "Executed.\n";
-        } else if (execute_result == EXECUTE_NOT_FOUND) {
-            std::cout << red << "Error: Record not found.\n" << reset;
-        }
+        ExecutionEngine execution_engine;
+        execution_engine.execute(statement, &btree);
     }
 }

@@ -1,4 +1,5 @@
 #include "../include/btree.h"
+#include "../include/table.h"
 #include <iostream>
 #include <vector>
 #include <cstring>
@@ -501,11 +502,11 @@ SearchResult BTree::find(uint32_t key) {
         char *record_data = page->get_record(m);
         uint32_t record_key;
         memcpy(&record_key, record_data, sizeof(uint32_t));
-        if (record_key == key) return {Cursor(table, page_id, m), true};
+        if (record_key == key) return {Cursor(this, page_id, m), true};
         if (record_key < key) l = m + 1;
         else r = m - 1;
     }
-    return {Cursor(table, page_id, l), false};
+    return {Cursor(this, page_id, l), false};
 }
 
 void BTree::insert(uint32_t key, const char *record, uint16_t size) {
@@ -630,7 +631,12 @@ SearchResult BTree::begin() {
         page = table->get_page(current_page_id);
     }
 
-    Cursor cursor = Cursor(table, current_page_id, 0);
+    Cursor cursor = Cursor(this, current_page_id, 0);
     if (page->header->slot_cnt > 0) return {cursor, true};
     return {cursor, false};
+}
+
+bool BTree::table_empty() {
+    PageGuard page = table->get_page(table->get_superblock()->root_page_id);
+    return page->header->type == LEAF_NODE && page->header->slot_cnt == 0;
 }

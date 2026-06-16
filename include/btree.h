@@ -3,6 +3,9 @@
 #include <vector>
 
 #include "cursor.h"
+#include "page.h"
+#include "page_guard.h"
+
 
 struct InternalNodeCell {
     uint32_t child_page;
@@ -46,7 +49,6 @@ class BTree {
 
     void borrow_internal(PageGuard &src, PageGuard &dst, PageGuard &parent, uint16_t parent_index, bool from_beg);
 
-
 public:
     Table *table;
 
@@ -63,6 +65,8 @@ public:
     void print_tree();
 
     SearchResult begin();
+
+    bool table_empty();
 };
 
 #endif //BTREE_H

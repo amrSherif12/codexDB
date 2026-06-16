@@ -11,7 +11,7 @@ void test() {
     int passed_tests = 0;
     int test_count = 0;
 
-    std::cout << reset << "Basic CRUD queries test  " << red;
+    std::cout << reset << "Btree test  " << red;
     if (query_test()) {
         passed_tests++;
         std::cout << green << "[TEST PASSED]\n";

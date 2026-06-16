@@ -1,6 +1,9 @@
 #ifndef STATEMENT_H
 #define STATEMENT_H
+#include <any>
 #include <cstdint>
+#include <memory>
+#include <vector>
 
 enum PrepareResult {
     PREPARE_SUCCESS,
@@ -18,13 +21,50 @@ enum StatementType {
     STATEMENT_SELECT,
     STATEMENT_SELECT_ALL,
     STATEMENT_UPDATE,
+    STATEMENT_UPDATE_ALL,
     STATEMENT_DELETE,
+    STATEMENT_DELETE_ALL,
+};
+
+enum ComparisonType {
+    COMPARISON_EQUAL,
+    COMPARISON_NOT_EQUAL,
+    COMPARISON_GREATER,
+    COMPARISON_GREATER_OR_EQUAL,
+    COMPARISON_SMALLER,
+    COMPARISON_SMALLER_OR_EQUAL,
+};
+
+enum ClauseType {
+    CLAUSE_WHERE,
+    CLAUSE_LIMIT,
+};
+
+struct Clause {
+    ClauseType type;
+    virtual ~Clause() = default;
+};
+
+struct WhereClause : Clause {
+    std::string column;
+    ComparisonType comparison;
+    uint32_t value;
+};
+
+struct LimitClause : Clause {
+    uint32_t cnt;
+};
+
+struct OrderByClause : Clause {
+    std::string column;
 };
 
 struct Row {
     uint32_t id;
     std::string username;
     std::string email;
+    std::vector<std::any> v;
+
 
     uint16_t get_size() const {
         return sizeof(uint32_t) +
@@ -39,7 +79,7 @@ struct Row {
                 this->username == other.username;
     }
 
-    void serialize(char *dest) const {
+    void serialize(char *dest)  {
         uint16_t offset = 0;
 
         memcpy(dest + offset, &id, sizeof(uint32_t));
@@ -77,7 +117,8 @@ struct Row {
 };
 
 struct Statement {
-    StatementType type;
+    StatementType statement;
+    std::vector<std::unique_ptr<Clause>> clauses;
     Row row;
     uint32_t target_id;
 };

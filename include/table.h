@@ -24,7 +24,7 @@ public:
 
     SuperBlockGuard get_superblock();
 
-    int increment_superblock_row_id(SuperBlockGuard &sb_page);
+    uint32_t increment_superblock_row_id();
 
     void unpin_page(uint32_t page_id, bool is_dirty);
 };

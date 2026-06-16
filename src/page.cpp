@@ -47,8 +47,8 @@ void Page::remove_record(uint16_t slot_index) {
     Slot *slot = get_slot(slot_index);
     if (slot_index >= header->slot_cnt) return;
     Slot *next_slot = get_slot(slot_index + 1);
-    memmove(slot, next_slot, (header->slot_cnt - slot_index) * sizeof(Slot));
     header->garbage_cnt += slot->size;
+    memmove(slot, next_slot, (header->slot_cnt - slot_index) * sizeof(Slot));
     header->slot_cnt--;
     header->lower_offset -= sizeof(Slot);
 }
