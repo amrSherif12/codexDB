@@ -1,6 +1,6 @@
 # CodexDB
 
-CodexDB is a very simple DBMS. It has one built-in table and can only perform basic CRUD operations without any fancy keywords like WHERE, JOIN, or ORDER BY, but it works. I built it primarily for fun and learning, and I actually learned a lot along the way. I faced different challenges like B+trees, linked lists, managing raw memory, and database internals. Here is a quick explanation of how this project works:
+CodexDB is a very simple DBMS. It has one built-in table and can only perform basic CRUD operations with 2 clauses WHERE and LIMIT but it works. I built it primarily for fun and learning, and I actually learned a lot along the way. I faced different challenges like B+trees, linked lists, managing raw memory, and database internals. Here is a quick explanation of how this project works:
 
 This project is structured into three primary modules:
 - **Database Engine**
